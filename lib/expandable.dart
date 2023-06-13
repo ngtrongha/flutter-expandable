@@ -496,6 +496,8 @@ class ExpandablePanel extends StatelessWidget {
   /// If specified, the header is always shown, and the expandable part is shown under the header
   final Widget? header;
 
+  final Color? headerColor;
+
   /// The widget shown in the collapsed state
   final Widget collapsed;
 
@@ -515,6 +517,7 @@ class ExpandablePanel extends StatelessWidget {
   ExpandablePanel({
     Key? key,
     this.header,
+    this.headerColor,
     required this.collapsed,
     required this.expanded,
     this.controller,
@@ -559,12 +562,15 @@ class ExpandablePanel extends StatelessWidget {
               wrap: !theme.tapHeaderToExpand!)
         ];
         return wrapWithExpandableButton(
-            widget: Row(
-              crossAxisAlignment: calculateHeaderCrossAxisAlignment(),
-              children:
-                  theme.iconPlacement! == ExpandablePanelIconPlacement.right
-                      ? rowChildren
-                      : rowChildren.reversed.toList(),
+            widget: Container(
+              color: headerColor,
+              child: Row(
+                crossAxisAlignment: calculateHeaderCrossAxisAlignment(),
+                children:
+                    theme.iconPlacement! == ExpandablePanelIconPlacement.right
+                        ? rowChildren
+                        : rowChildren.reversed.toList(),
+              ),
             ),
             wrap: theme.tapHeaderToExpand!);
       }
@@ -729,9 +735,8 @@ class _ExpandableIconState extends State<ExpandableIcon>
   Widget build(BuildContext context) {
     final theme = ExpandableThemeData.withDefaults(widget.theme, context);
 
-    return Container(
+    return Padding(
       padding: theme.iconPadding!,
-      color: theme.iconBackgroudColor,
       child: AnimatedBuilder(
         animation: animation!,
         builder: (context, child) {
