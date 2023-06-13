@@ -84,7 +84,7 @@ class Card1 extends StatelessWidget {
                     padding: EdgeInsets.all(10),
                     child: Text(
                       "ExpandablePanel",
-                      style: Theme.of(context).textTheme.body2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     )),
                 collapsed: Text(
                   loremIpsum,
@@ -149,7 +149,7 @@ class Card2 extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Expandable",
-                    style: Theme.of(context).textTheme.body1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),
@@ -176,7 +176,7 @@ class Card2 extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Expandable",
-                    style: Theme.of(context).textTheme.body1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   Text(
                     "3 Expandable widgets",

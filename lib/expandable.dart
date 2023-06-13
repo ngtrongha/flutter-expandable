@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class ExpandableThemeData {
   static final ExpandableThemeData defaults = ExpandableThemeData(
     iconColor: Colors.black54,
+    iconBackgroudColor: Colors.white,
     useInkWell: true,
     inkWellBorderRadius: BorderRadius.zero,
     animationDuration: const Duration(milliseconds: 300),
@@ -34,6 +35,8 @@ class ExpandableThemeData {
 
   // Expand icon color.
   final Color? iconColor;
+  // Expand icon backgroud color.
+  final Color? iconBackgroudColor;
 
   // If true then [InkWell] will be used in the header for a ripple effect.
   final bool? useInkWell;
@@ -114,6 +117,7 @@ class ExpandableThemeData {
 
   const ExpandableThemeData({
     this.iconColor,
+    this.iconBackgroudColor,
     this.useInkWell,
     this.animationDuration,
     this.scrollAnimationDuration,
@@ -147,6 +151,8 @@ class ExpandableThemeData {
     } else {
       return ExpandableThemeData(
         iconColor: theme.iconColor ?? defaults.iconColor,
+        iconBackgroudColor:
+            theme.iconBackgroudColor ?? defaults.iconBackgroudColor,
         useInkWell: theme.useInkWell ?? defaults.useInkWell,
         inkWellBorderRadius:
             theme.inkWellBorderRadius ?? defaults.inkWellBorderRadius,
@@ -723,8 +729,9 @@ class _ExpandableIconState extends State<ExpandableIcon>
   Widget build(BuildContext context) {
     final theme = ExpandableThemeData.withDefaults(widget.theme, context);
 
-    return Padding(
+    return Container(
       padding: theme.iconPadding!,
+      color: theme.iconBackgroudColor,
       child: AnimatedBuilder(
         animation: animation!,
         builder: (context, child) {
