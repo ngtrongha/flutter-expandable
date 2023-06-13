@@ -734,7 +734,6 @@ class _ExpandableIconState extends State<ExpandableIcon>
   @override
   Widget build(BuildContext context) {
     final theme = ExpandableThemeData.withDefaults(widget.theme, context);
-
     return Padding(
       padding: theme.iconPadding!,
       child: AnimatedBuilder(
