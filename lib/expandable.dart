@@ -562,15 +562,12 @@ class ExpandablePanel extends StatelessWidget {
               wrap: !theme.tapHeaderToExpand!)
         ];
         return wrapWithExpandableButton(
-            widget: Container(
-              color: headerColor,
-              child: Row(
-                crossAxisAlignment: calculateHeaderCrossAxisAlignment(),
-                children:
-                    theme.iconPlacement! == ExpandablePanelIconPlacement.right
-                        ? rowChildren
-                        : rowChildren.reversed.toList(),
-              ),
+            widget: Row(
+              crossAxisAlignment: calculateHeaderCrossAxisAlignment(),
+              children:
+                  theme.iconPlacement! == ExpandablePanelIconPlacement.right
+                      ? rowChildren
+                      : rowChildren.reversed.toList(),
             ),
             wrap: theme.tapHeaderToExpand!);
       }
