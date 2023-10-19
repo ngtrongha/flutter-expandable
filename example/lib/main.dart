@@ -180,7 +180,7 @@ class Card2 extends StatelessWidget {
                   ),
                   Text(
                     "3 Expandable widgets",
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall ,
                   ),
                 ],
               ),
@@ -259,7 +259,7 @@ class Card2 extends StatelessWidget {
                           controller.expanded ? "COLLAPSE" : "EXPAND",
                           style: Theme.of(context)
                               .textTheme
-                              .button!
+                              .labelLarge !
                               .copyWith(color: Colors.deepPurple),
                         ),
                         onPressed: () {
@@ -291,7 +291,7 @@ class Card3 extends StatelessWidget {
     buildList() {
       return Column(
         children: <Widget>[
-          for (var i in [1, 2, 3, 4]) buildItem("Item ${i}"),
+          for (var i in [1, 2, 3, 4]) buildItem("Item $i"),
         ],
       );
     }
